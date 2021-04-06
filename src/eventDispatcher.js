@@ -4,7 +4,11 @@ var EventDispatcher = {
      * @return {void}
      */
     mixin: function (instance) {
-    
+      instance.addEventListener = this.addEventListener;
+      instance.dispatchEvent = this.dispatchEvent;
+      instance.removeEventListener = this.removeEventListener;
+      instance.hasListenerFor = this.hasListenerFor;
+      instance.hasCallbackFor = this.hasCallbackFor;
     },
 
     /**
