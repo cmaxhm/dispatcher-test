@@ -39,6 +39,8 @@ var EventDispatcher = {
       for (let i = 0; i < this.events.length; i++) {
         if (this.events[i].name === name && this.events[i].callback === callback) return true;
       }
+
+      return false;
     },
 
     /**
