@@ -36,7 +36,9 @@ var EventDispatcher = {
      * @return {boolean}
      */
     hasCallbackFor: function (name, callback) {
-    
+      for (let i = 0; i < this.events.length; i++) {
+        if (this.events[i].name === name && this.events[i].callback === callback) return true;
+      }
     },
 
     /**
