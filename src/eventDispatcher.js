@@ -50,7 +50,11 @@ var EventDispatcher = {
      * @return {void}
      */
     removeEventListener: function (name, callback, opt_scope) {
-
+      for (let i = 0; i < this.events.length; i++) {
+        if (this.events[i].name === name && this.events[i].callback === callback) {
+          this.events.splice(i, 1);
+        }
+      }
     },
 
     /**
