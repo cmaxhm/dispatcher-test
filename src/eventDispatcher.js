@@ -9,6 +9,7 @@ var EventDispatcher = {
       instance.removeEventListener = this.removeEventListener;
       instance.hasListenerFor = this.hasListenerFor;
       instance.hasCallbackFor = this.hasCallbackFor;
+      instance.events = [];
     },
 
     /**
@@ -18,7 +19,7 @@ var EventDispatcher = {
      * @return {void}
      */
     addEventListener: function (name, callback, opt_scope) {
-    
+      this.events.push({ name, callback });
     },
 
     /**
@@ -26,7 +27,7 @@ var EventDispatcher = {
      * @return {boolean}
      */
     hasListenerFor: function (name) {
-    
+      return this.events.map(event => event.name).includes(name);
     },
 
     /**
