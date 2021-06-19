@@ -62,6 +62,10 @@ var EventDispatcher = {
      * @return {void}
      */
     dispatchEvent: function (name) {
-
+      for (let i = 0; i < this.events.length; i++) {
+        if (this.events[i].name === name) {
+          this.events[i].callback();
+        }
+      }
     }
 };

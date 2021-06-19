@@ -141,7 +141,7 @@ describe('EventDispatcher System', () => {
       testObj.dispatchEvent(testEventName)
 
       expect(testFunction).toHaveBeenCalled()
-      expect(testFunction2).toHaveBeenCzalled()
+      expect(testFunction2).toHaveBeenCalled()
     })
 
     it('Should not call registered callback if removed', () => {
