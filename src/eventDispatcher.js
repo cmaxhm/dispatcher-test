@@ -19,7 +19,7 @@ var EventDispatcher = {
      * @return {void}
      */
     addEventListener: function (name, callback, opt_scope) {
-      this.events.push({ name, callback });
+      this.events.push({ name, callback, opt_scope });
     },
 
     /**
@@ -64,7 +64,7 @@ var EventDispatcher = {
     dispatchEvent: function (name) {
       for (let i = 0; i < this.events.length; i++) {
         if (this.events[i].name === name) {
-          this.events[i].callback();
+          this.events[i].callback.call(this.events[i].opt_scope);
         }
       }
     }
